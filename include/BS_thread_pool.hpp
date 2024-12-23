@@ -120,7 +120,12 @@ namespace BS {
  */
 struct version
 {
-    constexpr version(const std::uint64_t major_, const std::uint64_t minor_, const std::uint64_t patch_) noexcept : major(major_), minor(minor_), patch(patch_) {}
+    constexpr version(const std::uint64_t major_, const std::uint64_t minor_, const std::uint64_t patch_) noexcept
+    {
+        this->major = major_;
+	this->minor = minor_;
+	this->patch = patch_;
+    }
 
 // In C++20 and later we can use the spaceship operator `<=>` to automatically generate comparison operators. In C++17 we have to define them manually.
 #ifdef __cpp_impl_three_way_comparison
